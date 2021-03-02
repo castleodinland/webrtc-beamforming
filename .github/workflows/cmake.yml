@@ -27,6 +27,6 @@ jobs:
     - name: Test_3mic
       working-directory: ${{github.workspace}}/build
       shell: bash
-      run: ./webrtc-bf -i input.wav -mic_positions "x1 y1 z1 x2 y2 z2" -o output.wav
+      run: ./webrtc-bf -i input.wav -mic_positions "0 0.1645 0 0.095 0 0 -0.095 0 0" -o output.wav
       
       
