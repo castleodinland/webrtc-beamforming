@@ -28,5 +28,11 @@ jobs:
       working-directory: ${{github.workspace}}/build
       shell: bash
       run: ./webrtc-bf -i input.wav -mic_positions "0 0.1645 0 0.095 0 0 -0.095 0 0" -o output.wav
-      
+     
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v2
+      with:
+        name: publish_out_wav
+        path: ${{github.workspace}}/build
+        retention-days: 1
       
