@@ -29,10 +29,12 @@ jobs:
       shell: bash
       run: ./webrtc-bf -i input.wav -mic_positions "0 0.1645 0 0.095 0 0 -0.095 0 0" -o output.wav
      
-    - name: 'Upload Artifact'
-      uses: actions/upload-artifact@v2
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2.2.2
       with:
+        # Artifact name
         name: publish_out_wav
-        path: ${{github.workspace}}/build
-        retention-days: 1
-      
+        # A file, directory or wildcard pattern that describes what to upload
+        path: ${{github.workspace}}/build/output.wav
+        # The desired behavior if no files are found using the provided path.
+        retention-days: 1 # optional
