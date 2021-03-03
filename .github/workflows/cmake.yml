@@ -18,11 +18,10 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Build
-      working-directory: ${{github.workspace}}
+      working-directory: ${{github.workspace}}/build
       shell: bash
       # Execute the build.  You can specify a specific target with "--target <NAME>"
-      run: |
-        cd build && cmake .. && make
+      run: cmake .. && make
 
     - name: Test_3mic
       working-directory: ${{github.workspace}}/build
@@ -35,6 +34,6 @@ jobs:
         # Artifact name
         name: publish_out_wav
         # A file, directory or wildcard pattern that describes what to upload
-        path: ${{github.workspace}}/build/output.wav
+        path: ${{github.workspace}}/build/*.wav
         # The desired behavior if no files are found using the provided path.
         retention-days: 1 # optional
